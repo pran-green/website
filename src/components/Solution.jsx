@@ -195,6 +195,7 @@ export default function Solution() {
 
     const [choice, setChoice] = useState(itemsForScenario[0]?.label || '')
     const [scanning, setScanning] = useState(false)
+    const [revealed, setRevealed] = useState(false)
     const [history, setHistory] = useState([]) // {label, scenario, ts}
 
     // Keep selection valid when scenario changes
@@ -202,6 +203,7 @@ export default function Solution() {
         if (!itemsForScenario.some(i => i.label === choice)) {
             const next = itemsForScenario[0]?.label || ''
             setChoice(next)
+            setRevealed(false)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [scenario])
@@ -214,8 +216,11 @@ export default function Solution() {
     function simulateScan() {
         if (!outcome) return
         setScanning(true)
+        setRevealed(false)
+
         window.setTimeout(() => {
             setScanning(false)
+            setRevealed(true)
             setHistory(prev => {
                 const next = [{ label: outcome.label, scenario, ts: Date.now() }, ...prev]
                 return next.slice(0, 6)
@@ -263,7 +268,10 @@ export default function Solution() {
                                     <label style={{ color: 'var(--muted)', fontSize: 14 }}>Scenario</label>
                                     <select
                                         value={scenario}
-                                        onChange={(e) => setScenario(e.target.value)}
+                                        onChange={(e) => {
+                                            setScenario(e.target.value)
+                                            setRevealed(false)
+                                        }}
                                         style={{
                                             marginTop: 8,
                                             width: '100%',
@@ -284,7 +292,10 @@ export default function Solution() {
                                     <label style={{ color: 'var(--muted)', fontSize: 14 }}>Pick an item</label>
                                     <select
                                         value={choice}
-                                        onChange={(e) => setChoice(e.target.value)}
+                                        onChange={(e) => {
+                                            setChoice(e.target.value)
+                                            setRevealed(false)
+                                        }}
                                         style={{
                                             marginTop: 8,
                                             width: '100%',
@@ -303,44 +314,104 @@ export default function Solution() {
                             </div>
 
                             {/* Result card */}
-                            <div className="card" style={{ padding: 14, background: 'rgba(0,0,0,.20)' }}>
+                            <div
+                                className="card"
+                                style={{
+                                    padding: 14,
+                                    background: 'rgba(0,0,0,.20)',
+                                    position: 'relative',
+                                    overflow: 'hidden',
+                                }}
+                            >
+                                {/* Scan overlay */}
+                                {scanning && (
+                                    <div
+                                        style={{
+                                            position: 'absolute',
+                                            inset: 0,
+                                            background: 'rgba(0,0,0,.35)',
+                                            borderRadius: 14,
+                                            display: 'grid',
+                                            placeItems: 'center',
+                                            zIndex: 2,
+                                        }}
+                                    >
+                                        <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+                                            <div
+                                                style={{
+                                                    position: 'absolute',
+                                                    left: 0,
+                                                    right: 0,
+                                                    top: 0,
+                                                    height: 2,
+                                                    background: 'rgba(255,255,255,.75)',
+                                                    boxShadow: '0 0 24px rgba(255,255,255,.35)',
+                                                    animation: 'wwScanSweep 900ms linear infinite',
+                                                }}
+                                            />
+                                            <div
+                                                style={{
+                                                    position: 'absolute',
+                                                    left: 14,
+                                                    bottom: 14,
+                                                    color: 'rgba(255,255,255,.90)',
+                                                    fontWeight: 800,
+                                                    letterSpacing: '-0.01em',
+                                                }}
+                                            >
+                                                Scanning…
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                                     <div style={{ fontWeight: 800, fontSize: 18 }}>Classification</div>
-                                    {outcome?.ok ? <CheckCircle2 size={18} /> : <XCircle size={18} />}
+                                    {revealed && !scanning ? (
+                                        outcome?.ok ? <CheckCircle2 size={18} /> : <XCircle size={18} />
+                                    ) : null}
                                 </div>
 
                                 <div style={{ marginTop: 10, fontSize: 28, fontWeight: 900, letterSpacing: '-.02em' }}>
-                                    {scanning ? 'Analyzing…' : outcome?.result}
+                                    {scanning ? 'Analyzing…' : (revealed ? outcome?.result : '—')}
                                 </div>
 
                                 <div className="p" style={{ marginTop: 6 }}>
-                                    Stream: <span style={{ color: 'var(--text)' }}>{outcome?.stream}</span>
+                                    Stream: <span style={{ color: 'var(--text)' }}>{revealed ? outcome?.stream : '—'}</span>
                                 </div>
 
-                                {/* Confidence */}
-                                <div style={{ marginTop: 12 }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--muted)', fontSize: 13 }}>
-                                        <span>Confidence</span>
-                                        <span>{Math.round((outcome?.confidence || 0) * 100)}%</span>
-                                    </div>
-                                    <div style={{ marginTop: 6, height: 10, borderRadius: 999, background: 'rgba(255,255,255,.10)', overflow: 'hidden' }}>
-                                        <div
-                                            style={{
-                                                width: `${Math.round((outcome?.confidence || 0) * 100)}%`,
-                                                height: '100%',
-                                                background: 'rgba(255,255,255,.55)',
-                                            }}
-                                        />
-                                    </div>
-                                </div>
+                                {revealed && !scanning ? (
+                                    <>
+                                        {/* Confidence */}
+                                        <div style={{ marginTop: 12 }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--muted)', fontSize: 13 }}>
+                                                <span>Confidence</span>
+                                                <span>{Math.round((outcome?.confidence || 0) * 100)}%</span>
+                                            </div>
+                                            <div style={{ marginTop: 6, height: 10, borderRadius: 999, background: 'rgba(255,255,255,.10)', overflow: 'hidden' }}>
+                                                <div
+                                                    style={{
+                                                        width: `${Math.round((outcome?.confidence || 0) * 100)}%`,
+                                                        height: '100%',
+                                                        background: 'rgba(255,255,255,.55)',
+                                                    }}
+                                                />
+                                            </div>
+                                        </div>
 
-                                {/* Why / Tip */}
-                                <div className="p" style={{ marginTop: 12 }}>
-                                    <span style={{ color: 'var(--muted)' }}>Why:</span> {outcome?.why}
-                                </div>
-                                <div className="p" style={{ marginTop: 6 }}>
-                                    <span style={{ color: 'var(--muted)' }}>Tip:</span> {outcome?.tip}
-                                </div>
+                                        {/* Why / Tip */}
+                                        <div className="p" style={{ marginTop: 12 }}>
+                                            <span style={{ color: 'var(--muted)' }}>Why:</span> {outcome?.why}
+                                        </div>
+                                        <div className="p" style={{ marginTop: 6 }}>
+                                            <span style={{ color: 'var(--muted)' }}>Tip:</span> {outcome?.tip}
+                                        </div>
+                                    </>
+                                ) : (
+                                    <div className="p" style={{ marginTop: 12, color: 'var(--muted)' }}>
+                                        Click “Simulate scan” to see the classification.
+                                    </div>
+                                )}
                             </div>
 
                             {/* Recent history */}
@@ -371,7 +442,11 @@ export default function Solution() {
                                                 <button
                                                     key={h.ts}
                                                     type="button"
-                                                    onClick={() => { setScenario(h.scenario); setChoice(h.label) }}
+                                                    onClick={() => {
+                                                        setScenario(h.scenario)
+                                                        setChoice(h.label)
+                                                        setRevealed(true)
+                                                    }}
                                                     className="card"
                                                     style={{
                                                         textAlign: 'left',
@@ -436,9 +511,13 @@ export default function Solution() {
           @media (max-width: 860px){
             .grid{grid-template-columns:1fr !important}
           }
+          @keyframes wwScanSweep {
+            0% { transform: translateY(10px); opacity: .35; }
+            15% { opacity: .9; }
+            100% { transform: translateY(calc(100% - 18px)); opacity: .25; }
+          }
         `}</style>
             </div>
         </section>
     )
 }
-//dummy

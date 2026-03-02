@@ -79,7 +79,5 @@ export const content = {
     },
   ],
   team: [
-    { name: "Aru Pandey", role: "Co-Founder", org: "Walmart" },
-    { name: "Raj K Rajasekhar", role: "Co-Founder", org: "Abbot" },
-  ],
+    { name: "Aru Pandey", role: "Founder", org: "Walmart" }],
 }
