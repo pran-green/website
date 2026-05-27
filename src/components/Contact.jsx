@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="card" style={{padding:22, overflow:'hidden', position:'relative'}}>
           <div style={{
             position:'absolute', inset:0,
-            background:'radial-gradient(700px 300px at 10% 0%, rgba(96,242,164,.18), transparent 60%), radial-gradient(900px 300px at 80% 20%, rgba(76,203,255,.14), transparent 60%)'
+            background:'radial-gradient(700px 300px at 10% 0%, rgba(82,176,90,.18), transparent 60%), radial-gradient(900px 300px at 80% 20%, rgba(109,200,118,.10), transparent 60%)'
           }} />
           <div style={{position:'relative'}}>
             <SectionHeading

@@ -1,52 +1,51 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { content } from '../content'
-import StatCounter from './StatCounter'
+import StatsCounter from './StatsCounter'
 
-import heroBg from '../assets/ppt/image55.png'
 import deviceImg from '../assets/ppt/image29.png'
 
 export default function Hero() {
   return (
-    <section id="top" style={{position:'relative', overflow:'hidden'}}>
+    <section id="top" className="section hero">
       <div style={{
         position:'absolute', inset:0,
-        backgroundImage: `linear-gradient(180deg, rgba(7,10,15,.55), rgba(7,10,15,.92)), url(${heroBg})`,
-        backgroundSize:'cover', backgroundPosition:'center',
-        filter:'saturate(1.05)',
+        background: `
+          radial-gradient(900px 600px at 15% 50%, rgba(82,176,90,.13), transparent 60%),
+          radial-gradient(600px 500px at 80% 20%, rgba(82,176,90,.07), transparent 55%),
+          radial-gradient(400px 300px at 60% 80%, rgba(109,200,118,.05), transparent 55%)
+        `,
       }} />
-      <div className="container" style={{position:'relative', padding:'86px 20px 54px'}}>
-        <div className="badge"><Sparkles size={16}/> Spectroscopy Enhanced Waste Classification System</div>
-
-        <div className="grid" style={{gridTemplateColumns:'1.15fr .85fr', alignItems:'center', marginTop:18}}>
+      <div className="container hero-inner">
+        <div className="grid grid-hero">
           <div>
             <motion.h1
               initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:.55}}
-              style={{fontSize:52, lineHeight:1.02, margin:'14px 0 12px', letterSpacing:'-.02em'}}
+              className="h1"
             >
               {content.brand.tagline}
             </motion.h1>
 
             <motion.p initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:.55, delay:.1}}
-              style={{color:'var(--muted)', fontSize:18, lineHeight:1.6, maxWidth: 620}}
+              className="hero-desc"
             >
               {content.brand.description}
             </motion.p>
 
             <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:.55, delay:.2}}
-              style={{display:'flex', gap:12, flexWrap:'wrap', marginTop:18}}
+              className="hero-ctas mt-2"
             >
-              <a className="btn primary" href="#solution">See how it works <ArrowRight size={18} /></a>
+              <a className="btn primary" href="#product">Learn About SEWCS <ArrowRight size={18} /></a>
               <a className="btn" href="#contact">Partner with us</a>
             </motion.div>
 
-            <div className="grid" style={{gridTemplateColumns:'repeat(3, 1fr)', gap:12, marginTop:26}}>
+            <div className="grid grid-cols-3 mt-3">
               {content.stats.map((s) => (
-                <div key={s.label} className="card" style={{padding:14}}>
-                  <div style={{fontSize:24, fontWeight:750}}>
-                    <StatCounter value={s.value} />{s.suffix ? <span style={{fontSize:14, color:'var(--muted)', marginLeft:6}}>{s.suffix}</span> : null}
+                <div key={s.label} className="card">
+                  <div className="stat-number">
+                    <StatsCounter value={s.value} />{s.suffix ? <span className="muted-small ml-1">{s.suffix}</span> : null}
                   </div>
-                  <div style={{color:'var(--muted)', fontSize:13, marginTop:6}}>{s.label}</div>
+                  <div className="stat-label">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -54,17 +53,16 @@ export default function Hero() {
 
           <motion.div
             initial={{opacity:0, y:14}} animate={{opacity:1, y:0}} transition={{duration:.55, delay:.15}}
-            className="card"
-            style={{padding:18, background:'rgba(12,18,32,.55)'}}
+            className="card panel-dark"
           >
-            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-              <div style={{fontWeight:700}}>Product preview</div>
-              <div className="badge" style={{padding:'6px 10px'}}>Standalone • Integrated</div>
+            <div className="space-between">
+              <div className="card-title">Product preview</div>
+              <div className="badge">Standalone • Integrated</div>
             </div>
-            <div style={{marginTop:12, borderRadius:14, overflow:'hidden', border:'1px solid rgba(255,255,255,.10)'}}>
-              <img src={deviceImg} alt="WasteWiz unit mockup" style={{width:'100%', background:'rgba(0,0,0,.35)'}}/>
+            <div className="card-media">
+              <img src={deviceImg} alt="Pran unit mockup" className="device-img"/>
             </div>
-            <div style={{marginTop:12, color:'var(--muted)', fontSize:14, lineHeight:1.6}}>
+            <div className="muted-note">
               Drop-in unit for existing bins or a fully integrated bin upgrade.
             </div>
           </motion.div>

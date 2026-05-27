@@ -36,8 +36,8 @@ export default function Impact() {
                   onClick={() => setActive(idx)}
                   style={{
                     justifyContent:'space-between',
-                    borderColor: idx === active ? 'rgba(96,242,164,.45)' : 'rgba(255,255,255,.14)',
-                    background: idx === active ? 'rgba(96,242,164,.08)' : 'rgba(255,255,255,.06)',
+                    borderColor: idx === active ? 'rgba(82,176,90,.45)' : 'rgba(255,255,255,.10)',
+                    background: idx === active ? 'rgba(82,176,90,.10)' : 'rgba(255,255,255,.04)',
                   }}
                 >
                   <span style={{textAlign:'left'}}>
