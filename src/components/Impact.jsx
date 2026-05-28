@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import SectionHeading from './SectionHeading'
 import { content } from '../content'
 import { ChevronRight } from 'lucide-react'
 
+import westin from '../assets/ppt/image24.png'
+import berkeley from '../assets/ppt/image37.png'
+import blueman from '../assets/ppt/image40.png'
+import booking from '../assets/ppt/image43.png'
+
+const images = [westin, berkeley, blueman, booking]
+
 export default function Impact() {
   const [active, setActive] = useState(0)
+  const hero = useMemo(() => images[active] || images[0], [active])
 
   return (
     <section id="impact" className="section">
@@ -15,7 +23,7 @@ export default function Impact() {
           description="From hospitality to campuses and venues, organizations have shown real savings when waste streams are clean."
         />
 
-        <div className="grid" style={{marginTop:22}}>
+        <div className="grid" style={{gridTemplateColumns:'1fr 1fr', gap:18, marginTop:22}}>
           <div className="card" style={{padding:18}}>
             <div style={{fontWeight:850, fontSize:18}}>Case studies</div>
             <div className="p" style={{marginTop:6}}>Examples referenced in the pitch deck.</div>
@@ -49,6 +57,15 @@ export default function Impact() {
             </div>
           </div>
 
+          <div className="card" style={{padding:18}}>
+            <div style={{fontWeight:850, fontSize:18}}>Visuals</div>
+            <div className="p" style={{marginTop:6}}>
+              Keep the page engaging with context imagery from the deck.
+            </div>
+            <div style={{marginTop:12, borderRadius:14, overflow:'hidden', border:'1px solid rgba(255,255,255,.10)'}}>
+              <img src={hero} alt="Case study visual" />
+            </div>
+          </div>
         </div>
 
         <div className="grid" style={{gridTemplateColumns:'repeat(4, 1fr)', marginTop:18}}>
