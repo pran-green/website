@@ -1,6 +1,5 @@
 import SectionHeading from './SectionHeading'
 import { content } from '../content'
-import iconRecycle from '../assets/ppt/image11.png'
 
 export default function Problem() {
   return (
@@ -15,8 +14,7 @@ export default function Problem() {
         <div className="grid" style={{gridTemplateColumns:'repeat(3, 1fr)', marginTop:22}}>
           {content.problem.map((p) => (
             <div key={p.title} className="card" style={{padding:18}}>
-              <img src={iconRecycle} alt="" style={{height:28, width:'auto', opacity:.9}} />
-              <div style={{fontWeight:750, fontSize:18, marginTop:12}}>{p.title}</div>
+<div style={{fontWeight:750, fontSize:18, marginTop:12}}>{p.title}</div>
               <div className="p" style={{marginTop:6}}>{p.body}</div>
             </div>
           ))}
