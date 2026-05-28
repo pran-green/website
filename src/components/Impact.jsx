@@ -58,11 +58,7 @@ export default function Impact() {
           </div>
 
           <div className="card" style={{padding:18}}>
-            <div style={{fontWeight:850, fontSize:18}}>Visuals</div>
-            <div className="p" style={{marginTop:6}}>
-              Keep the page engaging with context imagery from the deck.
-            </div>
-            <div style={{marginTop:12, borderRadius:14, overflow:'hidden', border:'1px solid rgba(255,255,255,.10)'}}>
+            <div style={{borderRadius:14, overflow:'hidden', border:'1px solid rgba(255,255,255,.10)'}}>
               <img src={hero} alt="Case study visual" />
             </div>
           </div>
