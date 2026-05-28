@@ -3,8 +3,6 @@ import { ArrowRight } from 'lucide-react'
 import { content } from '../content'
 import StatsCounter from './StatCounter'
 
-import deviceImg from '../assets/ppt/image29.png'
-
 export default function Hero() {
   return (
     <section id="top" className="section hero">
@@ -17,7 +15,7 @@ export default function Hero() {
         `,
       }} />
       <div className="container hero-inner">
-        <div className="grid grid-hero">
+        <div>
           <div>
             <motion.h1
               initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:.55}}
@@ -50,22 +48,6 @@ export default function Hero() {
               ))}
             </div>
           </div>
-
-          <motion.div
-            initial={{opacity:0, y:14}} animate={{opacity:1, y:0}} transition={{duration:.55, delay:.15}}
-            className="card panel-dark"
-          >
-            <div className="space-between">
-              <div className="card-title">Product preview</div>
-              <div className="badge">Standalone • Integrated</div>
-            </div>
-            <div className="card-media">
-              <img src={deviceImg} alt="Pran unit mockup" className="device-img"/>
-            </div>
-            <div className="muted-note">
-              Drop-in unit for existing bins or a fully integrated bin upgrade.
-            </div>
-          </motion.div>
         </div>
       </div>
 
