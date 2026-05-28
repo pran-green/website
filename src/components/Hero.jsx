@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { content } from '../content'
-import StatsCounter from './StatsCounter'
+import StatsCounter from './StatCounter'
 
 import deviceImg from '../assets/ppt/image29.png'
 
