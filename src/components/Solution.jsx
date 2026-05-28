@@ -4,7 +4,6 @@ import { content } from '../content'
 import { ScanLine, CheckCircle2, XCircle, Sparkles, RotateCcw } from 'lucide-react'
 
 import deviceClose from '../assets/ppt/image28.png'
-import signage from '../assets/ppt/image31.jpg'
 
 // Demo scenarios (makes the demo feel real + relevant)
 const scenarios = [
@@ -484,15 +483,6 @@ export default function Solution() {
                             </div>
                         </div>
 
-                        <div className="card" style={{ padding: 18 }}>
-                            <div style={{ fontWeight: 800, fontSize: 18 }}>Designed for real behavior</div>
-                            <div className="p" style={{ marginTop: 6 }}>
-                                Clear signage + instant feedback beats guessing. WasteWiz turns every disposal into a micro-training moment.
-                            </div>
-                            <div style={{ marginTop: 12, borderRadius: 14, overflow: 'hidden', border: '1px solid rgba(255,255,255,.10)' }}>
-                                <img src={signage} alt="Mixed recycling guidance" />
-                            </div>
-                        </div>
                     </div>
                 </div>
 
