@@ -58,7 +58,7 @@ export default function Contact() {
         </div>
 
         <div style={{marginTop:18, color:'var(--muted)', fontSize:13, textAlign:'center'}}>
-          © {new Date().getFullYear()} WasteWiz. All rights reserved.
+          © {new Date().getFullYear()} Pran. All rights reserved.
         </div>
 
         <style>{`
