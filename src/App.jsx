@@ -4,7 +4,6 @@ import Problem from './components/Problem'
 import Solution from './components/Solution'
 import Product from './components/Product'
 import Impact from './components/Impact'
-import Revenue from './components/Revenue'
 import Roadmap from './components/Roadmap'
 import Team from './components/Team'
 import Contact from './components/Contact'
@@ -18,7 +17,6 @@ export default function App() {
       <Solution />
       <Product />
       <Impact />
-      <Revenue />
       <Roadmap />
       <Team />
       <Contact />
