@@ -14,7 +14,7 @@ export default function Problem() {
         <div className="grid" style={{gridTemplateColumns:'repeat(3, 1fr)', marginTop:22}}>
           {content.problem.map((p) => (
             <div key={p.title} className="card" style={{padding:18}}>
-<div style={{fontWeight:750, fontSize:18, marginTop:12}}>{p.title}</div>
+              <div style={{fontWeight:750, fontSize:18}}>{p.title}</div>
               <div className="p" style={{marginTop:6}}>{p.body}</div>
             </div>
           ))}
