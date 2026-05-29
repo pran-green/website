@@ -9,7 +9,6 @@ const links = [
   { id: 'solution', label: 'Solution' },
   { id: 'product', label: 'Product' },
   { id: 'impact', label: 'Impact' },
-  { id: 'roadmap', label: 'Roadmap' },
   { id: 'team', label: 'Team' },
 ]
 
