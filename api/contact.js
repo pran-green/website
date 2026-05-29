@@ -7,7 +7,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { name, email, organization, message } = req.body
+  const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body
+  const { name, email, organization, message } = body || {}
 
   if (!name || !email) {
     return res.status(400).json({ error: 'Name and email are required' })
