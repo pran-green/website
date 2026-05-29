@@ -79,5 +79,8 @@ export const content = {
     },
   ],
   team: [
-    { name: "Aru Pandey", role: "Founder", org: "Walmart" }],
+    { name: "Aru Pandey", role: "Co-Founder", org: "Walmart" },
+    { name: "Rohit Vemparala", role: "Co-Founder", org: "" },
+    { name: "Daksh Parikh", role: "Co-Founder", org: "" },
+  ],
 }
