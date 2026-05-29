@@ -21,7 +21,7 @@ export default function Hero() {
           radial-gradient(400px 300px at 60% 80%, rgba(109,200,118,.05), transparent 55%)
         `,
       }} />
-      <div className="container" style={{ position: 'relative', padding: '80px 20px' }}>
+      <div className="container" style={{ position: 'relative', padding: '40px 20px', marginTop: '-80px' }}>
         <motion.h1
           initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:.55}}
           className="h1"
