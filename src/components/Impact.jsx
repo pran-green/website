@@ -64,16 +64,6 @@ export default function Impact() {
           </div>
         </div>
 
-        <div className="grid" style={{gridTemplateColumns:'repeat(4, 1fr)', marginTop:18}}>
-          {content.market.map((m, i) => (
-            <div key={i} className="card" style={{padding:16}}>
-              <div className="kicker">{m.label}</div>
-              <div style={{fontSize:26, fontWeight:900, marginTop:8}}>
-                {m.value}<span style={{fontSize:14, color:'var(--muted)', marginLeft:6}}>{m.suffix}</span>
-              </div>
-            </div>
-          ))}
-        </div>
 
         <style>{`
           @media (max-width: 860px){
