@@ -10,7 +10,7 @@ export default function Product() {
         <SectionHeading
           kicker="Product"
           title="Standalone or integrated — built to fit existing workflows."
-          description="Deploy WasteWiz on top of current bins and signage, or integrate the module directly into bin infrastructure."
+          description="Deploy SEWCS on top of current bins and signage, or integrate the module directly into bin infrastructure."
         />
 
         <div className="grid" style={{gridTemplateColumns:'1.1fr .9fr', gap:18, marginTop:22}}>
