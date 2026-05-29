@@ -237,7 +237,7 @@ export default function Solution() {
                 <SectionHeading
                     kicker="Our solution"
                     title="Point-of-disposal classification that scales."
-                    description="WasteWiz helps users sort correctly in the moment, reduces contamination fees, and generates real-time waste stream data."
+                    description="SEWCS helps users sort correctly in the moment, reduces contamination fees, and generates real-time waste stream data."
                 />
 
                 <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 18, marginTop: 22 }}>
