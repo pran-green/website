@@ -119,6 +119,9 @@ export default function ScrollStory() {
               background: 'linear-gradient(135deg, #fff 30%, var(--accent2) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
+              overflow: 'visible',
+              display: 'inline-block',
+              padding: '0 8px',
             }}>
               $11.4B
             </div>
