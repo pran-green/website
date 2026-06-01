@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef } from 'react'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { content } from '../content'
 
@@ -38,6 +38,10 @@ export default function Impact() {
   const data   = CASES[active]
   const isLast = active === CASES.length - 1
 
+  // Trigger stagger only when the full-screen section enters the viewport
+  const caseRef  = useRef()
+  const isInView = useInView(caseRef, { once: false, margin: '-80px' })
+
   return (
     <section id="impact">
 
@@ -57,7 +61,7 @@ export default function Impact() {
       </motion.div>
 
       {/* Full-screen case study — fixed height, no sticky */}
-      <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
+      <div ref={caseRef} style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
 
         {/* Background crossfades between cases */}
         <AnimatePresence>
@@ -91,7 +95,7 @@ export default function Impact() {
             key={active}
             variants={container}
             initial="hidden"
-            animate="show"
+            animate={isInView ? 'show' : 'hidden'}
             exit="exit"
             style={{
               position: 'absolute',
