@@ -74,6 +74,8 @@ export default function Navbar() {
         @media (max-width: 860px){
           .hide-mobile{display:none}
           .show-mobile{display:inline-flex}
+          .brand img{height:56px !important}
+          .nav-inner{padding:8px 0}
         }
       `}</style>
     </header>
