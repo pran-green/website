@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/fiber": "^8.18.0",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.441.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "resend": "^6.12.4"
+    "resend": "^6.12.4",
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
