@@ -65,8 +65,10 @@ export default function Solution() {
                 border: '1px solid rgba(82,176,90,.20)',
                 boxShadow: '0 0 80px rgba(82,176,90,.14), 0 28px 64px rgba(0,0,0,.55)',
                 transformStyle: 'preserve-3d',
+                backfaceVisibility: 'hidden',
+                willChange: 'transform, opacity',
               }}>
-                <img src={deviceClose} alt="SEWCS device" style={{ display: 'block', width: '100%' }} />
+                <img src={deviceClose} alt="SEWCS device" style={{ display: 'block', width: '100%', backfaceVisibility: 'hidden', willChange: 'transform' }} />
               </motion.div>
             </div>
 
@@ -100,13 +102,24 @@ export default function Solution() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 860px) {
-          #solution [style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
+       <style>{`
+         @media (max-width: 860px) {
+           #solution [style*="grid-template-columns: 1fr 1fr"] {
+             grid-template-columns: 1fr !important;
+           }
+           #solution img {
+             image-rendering: -webkit-optimize-contrast;
+             backface-visibility: hidden;
+             -webkit-font-smoothing: antialiased;
+           }
+         }
+         /* GPU acceleration for smooth scroll animations */
+         @supports (transform: translateZ(0)) {
+           #solution motion > div {
+             transform: translateZ(0);
           }
-        }
-      `}</style>
+         }
+       `}</style>
     </section>
   )
 }
