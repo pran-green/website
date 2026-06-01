@@ -56,17 +56,23 @@ export default function Impact() {
         </div>
       </motion.div>
 
-      {/* Full-screen case study — fixed height, no sticky */}
-      <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
+      {/* Full-screen case study — fades in on scroll, fixed height */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: false, margin: '-60px' }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}
+      >
 
         {/* Background crossfades between cases */}
         <AnimatePresence>
           <motion.div
             key={`bg-${active}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.55 }}
+            initial={{ opacity: 0, scale: 1.06 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.02 }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             style={{
               position: 'absolute',
               inset: 0,
@@ -172,7 +178,7 @@ export default function Impact() {
 
           </motion.div>
         </AnimatePresence>
-      </div>
+      </motion.div>
 
     </section>
   )
