@@ -132,7 +132,7 @@ export default function ScrollStory() {
         <Phase opacity={p3o} y={p3y}>
           <motion.div style={{ scale: p3s, textAlign: 'center' }}>
             <p style={{ color: 'var(--muted)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600, margin: '0 0 12px' }}>
-              Of plastic packaging is actually recycled
+              Only
             </p>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
               <div style={{
@@ -153,9 +153,12 @@ export default function ScrollStory() {
                 %
               </div>
             </div>
-            <p style={{ color: 'var(--muted)', fontSize: 18, marginTop: 16, maxWidth: 480, margin: '16px auto 0' }}>
-              The rest is contaminated, mis-sorted, or sent straight to landfill.
-            </p>
+             <p style={{ color: 'var(--muted)', fontSize: 18, marginTop: 16, maxWidth: 480, margin: '16px auto 0' }}>
+               Of plastic packaging is actually recycled
+             </p>
+             <p style={{ color: 'var(--muted)', fontSize: 18, marginTop: 16, maxWidth: 480, margin: '16px auto 0' }}>
+               The rest is contaminated or sent straight to landfill.
+             </p>
           </motion.div>
         </Phase>
 
