@@ -108,7 +108,7 @@ export default function ScrollStory() {
         {/* ── Phase 2: $11.4B ── */}
         <Phase opacity={p2o} y={p2y}>
           <motion.div style={{ scale: p2s, textAlign: 'center' }}>
-            <p style={{ color: 'var(--muted)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600, margin: '0 0 12px' }}>
+            <p style={{ color: 'var(--accent2)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, margin: '0 0 12px' }}>
               Lost annually to contamination
             </p>
             <div style={{
@@ -201,7 +201,7 @@ export default function ScrollStory() {
         {/* ── Phase 5: 98.6% accuracy ── */}
         <Phase opacity={p5o} y={p5y}>
           <motion.div style={{ scale: p5s, textAlign: 'center' }}>
-            <p style={{ color: 'var(--muted)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600, margin: '0 0 12px' }}>
+            <p style={{ color: 'var(--accent2)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, margin: '0 0 12px' }}>
               Projected classification accuracy
             </p>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
