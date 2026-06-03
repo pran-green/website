@@ -134,7 +134,7 @@ export default function ScrollStory() {
         {/* ── Phase 3: 14% ── */}
         <Phase opacity={p3o} y={p3y}>
           <motion.div style={{ scale: p3s, textAlign: 'center' }}>
-            <p style={{ color: 'var(--muted)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600, margin: '0 0 12px' }}>
+            <p style={{ color: 'var(--accent2)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, margin: '0 0 12px' }}>
               Only
             </p>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
