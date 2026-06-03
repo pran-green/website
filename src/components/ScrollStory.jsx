@@ -143,14 +143,17 @@ export default function ScrollStory() {
                 fontWeight: 900,
                 letterSpacing: '-0.04em',
                 lineHeight: 1,
-                color: '#fff',
+                background: 'linear-gradient(135deg, #fff 30%, var(--accent2) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                display: 'inline-block',
               }}>
                 14
               </div>
               <div style={{
                 fontSize: 'clamp(36px, 7vw, 80px)',
                 fontWeight: 900,
-                color: 'var(--muted)',
+                color: 'var(--accent2)',
                 marginTop: '0.15em',
               }}>
                 %
