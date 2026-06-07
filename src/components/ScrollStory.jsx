@@ -108,7 +108,7 @@ export default function ScrollStory() {
         {/* ── Phase 2: $11.4B ── */}
         <Phase opacity={p2o} y={p2y}>
           <motion.div style={{ scale: p2s, textAlign: 'center' }}>
-            <p style={{ color: 'var(--muted)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600, margin: '0 0 12px' }}>
+            <p style={{ color: 'var(--accent2)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, margin: '0 0 12px' }}>
               Lost annually to contamination
             </p>
             <div style={{
@@ -119,6 +119,9 @@ export default function ScrollStory() {
               background: 'linear-gradient(135deg, #fff 30%, var(--accent2) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
+              overflow: 'visible',
+              display: 'inline-block',
+              padding: '0 8px',
             }}>
               $11.4B
             </div>
@@ -131,8 +134,8 @@ export default function ScrollStory() {
         {/* ── Phase 3: 14% ── */}
         <Phase opacity={p3o} y={p3y}>
           <motion.div style={{ scale: p3s, textAlign: 'center' }}>
-            <p style={{ color: 'var(--muted)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600, margin: '0 0 12px' }}>
-              Of plastic packaging is actually recycled
+            <p style={{ color: 'var(--accent2)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, margin: '0 0 12px' }}>
+              Only
             </p>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
               <div style={{
@@ -140,22 +143,28 @@ export default function ScrollStory() {
                 fontWeight: 900,
                 letterSpacing: '-0.04em',
                 lineHeight: 1,
-                color: '#fff',
+                background: 'linear-gradient(135deg, #fff 30%, var(--accent2) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                display: 'inline-block',
               }}>
                 14
               </div>
               <div style={{
                 fontSize: 'clamp(36px, 7vw, 80px)',
                 fontWeight: 900,
-                color: 'var(--muted)',
+                color: 'var(--accent2)',
                 marginTop: '0.15em',
               }}>
                 %
               </div>
             </div>
-            <p style={{ color: 'var(--muted)', fontSize: 18, marginTop: 16, maxWidth: 480, margin: '16px auto 0' }}>
-              The rest is contaminated, mis-sorted, or sent straight to landfill.
-            </p>
+             <p style={{ color: 'var(--muted)', fontSize: 18, marginTop: 16, maxWidth: 480, margin: '16px auto 0' }}>
+               Of plastic packaging is actually recycled
+             </p>
+             <p style={{ color: 'var(--muted)', fontSize: 18, marginTop: 16, maxWidth: 480, margin: '16px auto 0' }}>
+               The rest is contaminated or sent straight to landfill.
+             </p>
           </motion.div>
         </Phase>
 
@@ -192,7 +201,7 @@ export default function ScrollStory() {
         {/* ── Phase 5: 98.6% accuracy ── */}
         <Phase opacity={p5o} y={p5y}>
           <motion.div style={{ scale: p5s, textAlign: 'center' }}>
-            <p style={{ color: 'var(--muted)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600, margin: '0 0 12px' }}>
+            <p style={{ color: 'var(--accent2)', fontSize: 15, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, margin: '0 0 12px' }}>
               Projected classification accuracy
             </p>
             <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center' }}>
