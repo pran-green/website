@@ -14,11 +14,11 @@ export default function Product() {
         />
 
         <div className="grid" style={{gridTemplateColumns:'1.1fr .9fr', gap:18, marginTop:22}}>
-          <div className="card" style={{padding:18}}>
+          <div style={{padding:'0 4px'}}>
             <div style={{fontWeight:850, fontSize:18}}>Unit mockup</div>
             <div className="p" style={{marginTop:6}}>Drop-in module with clear indicators for fast decisions.</div>
-            <div style={{marginTop:12, borderRadius:14, overflow:'hidden', border:'1px solid rgba(255,255,255,.10)', background:'rgba(0,0,0,.35)'}}>
-              <img src={productImg} alt="Standalone and integrated mockup" />
+            <div style={{marginTop:12}}>
+              <img src={productImg} alt="Standalone and integrated mockup" style={{width:'100%', borderRadius:14, filter:'brightness(0.55)'}} />
             </div>
           </div>
 
