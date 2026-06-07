@@ -210,12 +210,12 @@ export default function Solution() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
 
             {/* 3D device canvas */}
-            <motion.div style={{ opacity: devOp, height: '58vh' }}>
+            <motion.div style={{ opacity: devOp }} className="solution-canvas-wrap">
               <Canvas
                 camera={{ position: [0.3, 2.2, 4.2], fov: 38 }}
                 gl={{ antialias: true, alpha: true }}
                 dpr={Math.min(window.devicePixelRatio, 2)}
-                style={{ background: 'transparent' }}
+                style={{ background: 'transparent', width: '100%', height: '100%' }}
               >
                 <Lights />
                 <SEWCSDevice scrollRef={scrollRef} />
@@ -223,7 +223,7 @@ export default function Solution() {
             </motion.div>
 
             {/* Steps */}
-            <div style={{ display: 'grid', gap: 28 }}>
+            <div style={{ display: 'grid', gap: 28 }} className="solution-steps">
               {content.howItWorks.map((step, i) => (
                 <motion.div key={step.step} style={{ opacity: stepOpacities[i], y: stepYs[i] }}>
                   <div className="badge" style={{ marginBottom: 10 }}>{step.step}</div>
@@ -248,10 +248,15 @@ export default function Solution() {
       </div>
 
       <style>{`
+        .solution-canvas-wrap { height: 58vh; }
+        .solution-steps { padding-top: 0; }
+
         @media (max-width: 860px) {
           #solution [style*="grid-template-columns: 1fr 1fr"] {
             grid-template-columns: 1fr !important;
           }
+          .solution-canvas-wrap { height: 32vh; }
+          .solution-steps { padding-top: 24px; }
         }
       `}</style>
     </section>
