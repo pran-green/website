@@ -248,15 +248,10 @@ export default function Solution() {
       </div>
 
       <style>{`
-        .solution-canvas-wrap { height: 58vh; }
-        .solution-steps { padding-top: 0; }
-
         @media (max-width: 860px) {
           #solution [style*="grid-template-columns: 1fr 1fr"] {
             grid-template-columns: 1fr !important;
           }
-          .solution-canvas-wrap { height: 32vh; }
-          .solution-steps { padding-top: 24px; }
         }
       `}</style>
     </section>
