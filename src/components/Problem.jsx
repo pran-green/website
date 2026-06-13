@@ -27,7 +27,7 @@ export default function Problem() {
         {/* Problem cards — staggered */}
         <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', marginTop: 22 }}>
           {content.problem.map((p, i) => (
-            <motion.div key={p.title} className="card" style={{ padding: 18 }} {...fadeUp(0.1 + i * 0.08)}>
+            <motion.div key={p.title} style={{ padding: 18 }} {...fadeUp(0.1 + i * 0.08)}>
               <div style={{ fontWeight: 750, fontSize: 18 }}>{p.title}</div>
               <div className="p" style={{ marginTop: 6 }}>{p.body}</div>
             </motion.div>
@@ -36,21 +36,12 @@ export default function Problem() {
 
         {/* Why it matters */}
         <motion.div
-          className="card"
-          style={{ marginTop: 18, padding: 18, display: 'grid', gridTemplateColumns: '1.2fr .8fr', gap: 16 }}
+          style={{ marginTop: 18, padding: 18 }}
           {...fadeUp(0.35)}
         >
-          <div>
-            <div style={{ fontWeight: 750, fontSize: 18 }}>Why it matters</div>
-            <div className="p" style={{ marginTop: 6 }}>
-              Mixed recycling programs often operate around contamination thresholds; going above them triggers extra fees and more landfill diversion.
-            </div>
-          </div>
-          <div style={{ borderLeft: '1px solid rgba(255,255,255,.10)', paddingLeft: 16 }}>
-            <div className="badge">Contamination threshold</div>
-            <div style={{ marginTop: 10, color: 'var(--muted)', fontSize: 14, lineHeight: 1.6 }}>
-              &lt; 15%: lower processing cost • &gt; 15%: extra contamination fees + disposal
-            </div>
+          <div style={{ fontWeight: 750, fontSize: 18 }}>Why it matters</div>
+          <div className="p" style={{ marginTop: 6 }}>
+            Mixed recycling programs often operate around contamination thresholds; going above them triggers extra fees and more landfill diversion.
           </div>
         </motion.div>
 

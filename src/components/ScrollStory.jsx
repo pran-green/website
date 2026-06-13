@@ -260,7 +260,7 @@ export default function ScrollStory() {
             width: '100%',
           }}>
             {content.stats.map(s => (
-              <div key={s.label} className="card" style={{ textAlign: 'center' }}>
+              <div key={s.label} style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: 22, fontWeight: 800 }}>
                   {s.value}{s.suffix && <span style={{ color: 'var(--muted)', fontSize: 14, marginLeft: 3 }}>{s.suffix}</span>}
                 </div>

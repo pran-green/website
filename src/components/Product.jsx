@@ -23,14 +23,14 @@ export default function Product() {
           </div>
 
           <div className="grid" style={{gridTemplateRows:'1fr 1fr', gap:18}}>
-            <div className="card" style={{padding:18, overflow:'hidden'}}>
+            <div style={{padding:18, overflow:'hidden'}}>
               <div style={{fontWeight:850, fontSize:18}}>Built + tested with makers</div>
               <div className="p" style={{marginTop:6}}>MVP development and deployment support with EPIC / Build Lab ecosystem.</div>
               <div style={{marginTop:12, borderRadius:14, overflow:'hidden', border:'1px solid rgba(255,255,255,.10)'}}>
                 <img src={epicImg} alt="EPIC lab" />
               </div>
             </div>
-            <div className="card" style={{padding:18}}>
+            <div style={{padding:18}}>
               <div style={{fontWeight:850, fontSize:18}}>Climate innovation aligned</div>
               <div className="p" style={{marginTop:6}}>Designed to contribute to climate justice and practical waste diversion.</div>
               <div style={{marginTop:12, borderRadius:14, overflow:'hidden', border:'1px solid rgba(255,255,255,.10)'}}>
