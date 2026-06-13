@@ -8,8 +8,8 @@ function easeInOut(t) {
   return t < 0.5 ? 2 * t * t : 1 - 2 * (1 - t) * (1 - t)
 }
 
-// ─── Device — time-based rotation when section enters view ────────────────────
-function SEWCSDevice({ isInView }) {
+// ─── Device — time-based rotation + scroll-driven vertical movement ───────────
+function SEWCSDevice({ isInView, sectionRef }) {
   const group    = useRef()
   const startRef = useRef(null)
 
@@ -22,12 +22,22 @@ function SEWCSDevice({ isInView }) {
       const t = easeInOut(Math.min((now - startRef.current) / 1.4, 1))
       group.current.rotation.x = 0.65 - t * 0.50
     } else {
-      startRef.current = null          // reset so it replays next time
-      group.current.rotation.x = 0.65 // back to initial tilt
+      startRef.current = null
+      group.current.rotation.x = 0.65
     }
 
-    group.current.rotation.y  = -0.42
-    group.current.position.y  = Math.sin(now * 0.9) * 0.025
+    // Compute scroll progress live from element bounds — works in both directions
+    let scrollY = 0
+    let sp = 0.5
+    if (sectionRef?.current) {
+      const rect = sectionRef.current.getBoundingClientRect()
+      const vh   = window.innerHeight
+      sp      = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)))
+      scrollY = (sp - 0.5) * 1.6
+    }
+    group.current.position.y  = Math.sin(now * 0.9) * 0.025 + scrollY
+    // Rotate right when scrolling down, left when scrolling up
+    group.current.rotation.y  = -0.42 + (sp - 0.5) * 0.9
   })
 
   const BW = 0.95, BH = 0.22, BD = 0.55
@@ -126,6 +136,7 @@ export default function Solution() {
   const sectionRef = useRef()
   const isInView   = useInView(sectionRef, { once: false, margin: '-80px' })
 
+
   const ease = [0.16, 1, 0.3, 1]
 
   const anim = (delay = 0) => ({
@@ -153,7 +164,7 @@ export default function Solution() {
               style={{ background: 'transparent', width: '100%', height: '100%' }}
             >
               <Lights />
-              <SEWCSDevice isInView={isInView} />
+              <SEWCSDevice isInView={isInView} sectionRef={sectionRef} />
             </Canvas>
           </motion.div>
 
