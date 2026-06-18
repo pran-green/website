@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import { content } from '../content'
 
 function Phase({ opacity, y, children, style = {} }) {
+  const pointerEvents = useTransform(opacity, v => (v > 0.05 ? 'auto' : 'none'))
   return (
     <motion.div
       style={{
@@ -16,6 +17,7 @@ function Phase({ opacity, y, children, style = {} }) {
         padding: '0 24px',
         opacity,
         y,
+        pointerEvents,
         ...style,
       }}
     >
