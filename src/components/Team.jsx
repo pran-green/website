@@ -1,7 +1,7 @@
 import SectionHeading from './SectionHeading'
 import { content } from '../content'
 import aru from '../assets/Aru.jpeg'
-import rohit from '../assets/rohit.png'
+import rohit from '../assets/rohit.jpg'
 import daksh from '../assets/daksh.jpeg'
 import cic from '../assets/cic2.jpeg'
 import cto from '../assets/cto.jpeg'
@@ -31,6 +31,8 @@ export default function Team() {
                             <img
                                 src={item.img}
                                 alt={content.team[i].name}
+                                loading="lazy"
+                                decoding="async"
                                 style={{
                                     width: 120,
                                     height: 120,
@@ -50,7 +52,7 @@ export default function Team() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginTop: 18 }}>
                     <div style={{ padding: 0, overflow: 'hidden' }}>
-                        <img src={cic} alt="BU Climate Innovation Challenge winners" style={{ width: '100%', display: 'block', borderRadius: 14 }} />
+                        <img src={cic} alt="BU Climate Innovation Challenge winners" loading="lazy" decoding="async" style={{ width: '100%', display: 'block', borderRadius: 14 }} />
                         <div style={{ padding: '14px 18px 18px' }}>
                             <div style={{ fontWeight: 800, fontSize: 16 }}>BU Climate Innovation Challenge</div>
                             <div className="p" style={{ marginTop: 4, fontSize: 14 }}>Winners — $2,500 prize from Innovate@BU, March 2025.</div>
@@ -58,7 +60,7 @@ export default function Team() {
                     </div>
 
                     <div style={{ padding: 0, overflow: 'hidden' }}>
-                        <img src={cto} alt="Cleantech Open 2026 Cohort" style={{ width: '100%', display: 'block', borderRadius: 14 }} />
+                        <img src={cto} alt="Cleantech Open 2026 Cohort" loading="lazy" decoding="async" style={{ width: '100%', display: 'block', borderRadius: 14 }} />
                         <div style={{ padding: '14px 18px 18px' }}>
                             <div style={{ fontWeight: 800, fontSize: 16 }}>Cleantech Open — 2026 Cohort</div>
                             <div className="p" style={{ marginTop: 4, fontSize: 14 }}>Selected for the world's largest cleantech accelerator program.</div>

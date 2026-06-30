@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { content } from '../content'
 
-import westin   from '../assets/ppt/image24.png'
-import berkeley from '../assets/ppt/image37.png'
-import blueman  from '../assets/ppt/image40.png'
+import westin   from '../assets/ppt/image24.jpg'
+import berkeley from '../assets/ppt/image37.jpg'
+import blueman  from '../assets/ppt/image40.jpg'
 
 const CASES = [
   { ...content.caseStudies[2], img: blueman  },

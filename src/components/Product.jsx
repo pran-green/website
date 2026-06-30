@@ -1,7 +1,7 @@
 import SectionHeading from './SectionHeading'
 import productImg from '../assets/ppt/image29.png'
-import epicImg from '../assets/ppt/image57.png'
-import buChallenge from '../assets/ppt/image58.png'
+import epicImg from '../assets/ppt/image57.jpg'
+import buChallenge from '../assets/ppt/image58.jpg'
 
 export default function Product() {
   return (
@@ -18,7 +18,7 @@ export default function Product() {
             <div style={{fontWeight:850, fontSize:18}}>Unit mockup</div>
             <div className="p" style={{marginTop:6}}>Drop-in module with clear indicators for fast decisions.</div>
             <div style={{marginTop:12}}>
-              <img src={productImg} alt="Standalone and integrated mockup" style={{width:'100%', borderRadius:14, filter:'brightness(0.55)'}} />
+              <img src={productImg} alt="Standalone and integrated mockup" loading="lazy" decoding="async" style={{width:'100%', borderRadius:14, filter:'brightness(0.55)'}} />
             </div>
           </div>
 
@@ -27,14 +27,14 @@ export default function Product() {
               <div style={{fontWeight:850, fontSize:18}}>Built + tested with makers</div>
               <div className="p" style={{marginTop:6}}>MVP development and deployment support with EPIC / Build Lab ecosystem.</div>
               <div style={{marginTop:12, borderRadius:14, overflow:'hidden', border:'1px solid rgba(255,255,255,.10)'}}>
-                <img src={epicImg} alt="EPIC lab" />
+                <img src={epicImg} alt="EPIC lab" loading="lazy" decoding="async" />
               </div>
             </div>
             <div style={{padding:18}}>
               <div style={{fontWeight:850, fontSize:18}}>Climate innovation aligned</div>
               <div className="p" style={{marginTop:6}}>Designed to contribute to climate justice and practical waste diversion.</div>
               <div style={{marginTop:12, borderRadius:14, overflow:'hidden', border:'1px solid rgba(255,255,255,.10)'}}>
-                <img src={buChallenge} alt="BU Climate Innovation Challenge" />
+                <img src={buChallenge} alt="BU Climate Innovation Challenge" loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
