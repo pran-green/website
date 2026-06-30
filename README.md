@@ -1,6 +1,6 @@
-# WasteWiz React Website (Vite)
+# Pran Website (Vite + React)
 
-This is a clean, modern, image-rich landing page built from your pitch deck assets.
+Landing page for Pran — spectroscopy-enhanced waste classification for cleaner recycling streams.
 
 ## Run locally
 ```bash
